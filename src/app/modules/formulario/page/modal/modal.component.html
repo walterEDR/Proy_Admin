@@ -1,0 +1,120 @@
+<!-- Button trigger modal -->
+<div>
+  <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEmpleado"
+  (click)="openModal(content)">
+   {{ leyenda }}
+   </button>
+</div>
+
+ <!-- Modal -->
+ <ng-template #content role="document" let-modal>
+  <!--
+ <div class="modal fade" id="modalEmpleado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Mascotas</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+      (click)="mostrar()"></button>
+      </div>
+
+      <div class="modal-body">
+        <form (ngSubmit)="guardar()" [formGroup]="formEmpleado">
+
+
+
+
+       <div class="form-group row">
+
+        <div class="">
+          <input type="text"
+          class="form-control"
+          formControlName="nombre"
+          placeholder="Nombre"
+         >
+        </div>
+
+        <div class="">
+          <input type="text"
+          class="form-control"
+          formControlName="apellido"
+          placeholder="Apellio"
+         >
+        </div>
+
+        <div class="">
+          <input type="text"
+          class="form-control"
+          formControlName="email"
+          placeholder="Email"
+         >
+        </div>
+
+
+
+
+
+
+       </div>
+
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="mostrar()">Cerrar</button>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+      </div>
+     </div>
+  -->
+
+  <!-- fin del Form -->
+ <!--
+</form>
+ </div>
+ -->
+
+ <div class="modal-header">
+  <h5 class="modal-title mt-0">Order Details</h5>
+  <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="guardar()" [formGroup]="formEmpleado">
+
+    <div class="form-group row">
+      <div class="form-control">
+        <input type="text"
+        class="form-control"
+        formControlName="nombre"
+        placeholder="Nombre"
+       >
+      </div>
+
+      <div class="form-control">
+        <input type="text"
+        class="form-control"
+        formControlName="apellido"
+        placeholder="Apellio"
+       >
+      </div>
+
+      <div class="form-control">
+        <input type="text"
+        class="form-control"
+        formControlName="email"
+        placeholder="Email"
+       >
+      </div>
+
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+</div>
+</form>
+</div>
+
+
+
+</ng-template>

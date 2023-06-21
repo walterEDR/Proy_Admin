@@ -1,0 +1,43 @@
+<div class="container-fluid">
+
+  <app-page-title title="Anime" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="row mb-2">
+          <div class="col-sm-4">
+
+            <div class="search-box me-2 mb-2 d-inline-block">
+              <div class="position-relative">
+                <input type="text" class="form-control" placeholder="Search..." >
+                <i class="bx bx-search-alt search-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="text-sm-end">
+              <app-modal [leyenda]="'Nuevo'"></app-modal>
+            <!--  <button type="button" class="btn btn-success btn-rounded mb-2 mr-2" (click)="openModal(content)">
+
+              <i class="mdi mdi-plus me-1"></i> New Customers
+              </button>
+              -->
+            </div>
+          </div>
+          <!-- end col-->
+        </div>
+
+        <!-- Contenido del Scroll data -->
+       <app-table [empleado]="empleado" ></app-table>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+

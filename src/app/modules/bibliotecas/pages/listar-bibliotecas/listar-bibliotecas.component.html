@@ -1,0 +1,245 @@
+<div class="container-fluid">
+  <app-page-title
+    title="Biblioteca"
+    [breadcrumbItems]="breadCrumbItems"
+  ></app-page-title>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Biblioteca</h4>
+          <p class="card-sub-title">Detalle</p>
+          <div class="row mb-md-2">
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="tickets-table_length">
+                <label class="d-inline-flex align-items-center"
+                  >Show
+                  <select
+                    name="tickets-table_length"
+                    aria-controls="tickets-table"
+                    name="pageSize"
+                    [(ngModel)]="size"
+                    class="form-control form-control-sm mx-2"
+                    (ngModelChange)="setSize($event)"
+                  >
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                  registros</label>
+              </div>
+            </div>
+            <!-- Search -->
+            <div class="col-sm-12 col-md-6">
+              <div
+                id="tickets-table_filter"
+                class="dataTables_filter text-md-end"
+              >
+                <label class="d-inline-flex align-items-center"
+                  >Search:
+                  <input
+                    type="text"
+                    name="searchTerm"
+                    class="form-control form-control-sm ms-2"
+                    aria-controls="tickets-table"
+                /></label>
+              </div>
+            </div>
+            <!-- End search -->
+          </div>
+          <!-- Table -->
+          <div class="table-responsive">
+            <table
+              id="basic-datatable"
+              class="table table-bordered dt-responsive nowrap datatables no-footer dtr-inline"
+            >
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>ID</th>
+                  <th>Biblioteca</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let table of bibliotecas; let ix = index">
+                <!-- <tbody> -->
+                <tr>
+                  <td align="center">
+                    <input type="radio" class="form-check-input p-2" id="formRadioColor2" name="formRadioColor2"
+                    (click)="cambiarAotraBiblioteca(table)">
+                    <a
+                      class="expand-row m-1"
+                      (click)="mostrarLibros(table, ix)"
+                    >
+                      +
+                    </a>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="table.id"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="table.nombre"></ngb-highlight>
+                  </td>
+                  <td>
+                    <div ngbDropdown placement="bottom-left">
+                      <i
+                        class="mdi mdi-dots-vertical dropdown-toggle"
+                        ngbDropdownToggle
+                        data-toggle="dropdown"
+                        aria-expanded="true"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-end"
+                        ngbDropdownMenu
+                      >
+                        <a class="dropdown-item" href="javascript: void(0);"
+                          ><i class="mdi mdi-plus"></i>Add</a
+                        >
+                        <a class="dropdown-item" href="javascript: void(0);"
+                          ><i class="mdi mdi-account-edit"></i>Edit</a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr *ngIf="!hideme[ix]" class="sub-table no-bg">
+                  <!-- <tr  class="sub-table no-bg"> -->
+                  <td align="center"></td>
+                  <td colspan="15" class="p-0">
+                    <table class="table mb-0 table-striped">
+                      <thead class="bg-dark text-white">
+                        <tr>
+                          <th></th>
+                          <th></th>
+                          <th>Nombre</th>
+                          <th>
+                            <a
+                              style="cursor: pointer; padding: 20px"
+                              (click)="paraAgregar(content, table, ix)"
+                            >
+                              <i class="mdi mdi-plus"></i>Nuevo</a
+                            >
+                            <a style="cursor: pointer"
+                            (click)="trasladarBiblioteca(table)">
+                              <i class="mdi mdi-auto-fix"></i>Cambiar</a
+                            >
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody id="bodyLibros">
+                        <tr *ngFor="let libro of libros[ix]; let i = index">
+                          <!-- <tr > -->
+                          <td>
+                            <input type="checkbox" class="form-check-input" id="{{libro.id}}" [checked]="checked">
+                          </td>
+                          <td>{{ i + 1 }}</td>
+                          <td>{{ libro.nombre }}</td>
+                          <td>
+                            <div ngbDropdown placement="bottom-left">
+                              <i
+                                class="mdi mdi-dots-vertical dropdown-toggle"
+                                ngbDropdownToggle
+                                data-toggle="dropdown"
+                                aria-expanded="true"
+                              ></i>
+                              <div
+                                class="dropdown-menu dropdown-menu-end"
+                                ngbDropdownMenu
+                              >
+                                <a
+                                  class="dropdown-item"
+                                  (click)="
+                                    paraEditar(content, table, libro, ix)
+                                  "
+                                >
+                                  <i
+                                    class="fas fa-pencil-alt text-succes me-xl-1"
+                                  ></i>
+                                  Editar</a
+                                >
+
+                                <a
+                                  class="dropdown-item"
+                                  (click)="borrar(libro, ix)"
+                                  ><i
+                                    class="fas fa-trash-alt text-danger me-xl-1"
+                                  ></i>
+                                  Borrar</a
+                                >
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- End table -->
+          <div
+            class="row justify-content-md-between align-items-md-center mt-2"
+          >
+            <div class="col-sm-12 col-md-5">
+              <div
+                class="dataTables_info mb-2"
+                id="tickets-table_info"
+                role="status"
+                aria-live="polite"
+              >
+                Mostrando 10 de n de un total de algo
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <!-- aqui va la paginacion -->
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL -->
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Libro</h5>
+    <!-- <button type="button" class="close" aria-hidden="true" (click)="modal.dismiss('Cross click')">×</button> -->
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="guardarLibro()" [formGroup]="formLibro">
+      <div class="row">
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Nombre</label>
+            <input
+              class="form-control"
+              placeholder="Ingresar titulo"
+              type="text"
+              autocomplete="off"
+              formControlName="nombre"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" id="btn-save-event">
+          Guardar
+        </button>
+        <button
+          type="button"
+          class="btn btn-light"
+          (click)="modal.close('Close click')"
+        >
+          Cerrar
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
