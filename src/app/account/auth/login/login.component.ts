@@ -29,6 +29,9 @@ export class LoginComponent implements OnInit {
   error = '';
   returnUrl: string;
 
+  type = 'password' ;
+  class = 'mdi mdi-eye-outline';
+//mdi mdi-eye-off-outline
   // set the currenr year
   year: number = new Date().getFullYear();
 
@@ -38,6 +41,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
+   // let token = localStorage.getItem('token');
+    //if (token) {
+     //  this.router.navigate(['/dashboard']);
+    // }
+
+     this.loginForm = this.iniciarFormulario();
     /*
     this.loginForm = this.formBuilder.group({
       email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
@@ -50,11 +59,8 @@ export class LoginComponent implements OnInit {
     // tslint:disable-next-line: no-string-literal
     //this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 
-    let token = localStorage.getItem('token');
-  if (token) {
-    this.router.navigate(['/dashboard']);
-  }
-    this.loginForm = this.iniciarFormulario();
+
+
 
 
   }
@@ -123,6 +129,16 @@ export class LoginComponent implements OnInit {
     }
     );
 
+    }
+
+    cambio(){
+      if(this.type === 'password'){
+        this.type = 'text';
+        this.class = 'mdi mdi-eye-off-outline';
+      }else{
+        this.type = 'password';
+        this.class = 'mdi mdi-eye-outline';
+      }
     }
   }
 

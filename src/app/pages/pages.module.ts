@@ -37,6 +37,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ChatComponent } from './chat/chat.component';
 
 import { FilemanagerComponent } from './filemanager/filemanager.component';
+//import { PerfilComponent } from './perfil/perfil.component';
+import { PerfilModule } from './perfil/perfil.module';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -78,7 +80,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NgbTooltipModule,
     NgbCollapseModule,
     SimplebarAngularModule,
-    LightboxModule
+    LightboxModule,
+    PerfilModule,
   ],
 })
 export class PagesModule { }

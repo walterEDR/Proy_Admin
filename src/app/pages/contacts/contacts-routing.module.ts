@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserlistComponent } from './userlist/userlist.component';
 import { UsergridComponent } from './usergrid/usergrid.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PerfilComponent } from '../perfil/perfil.component';
 
 const routes: Routes = [
     {
@@ -16,7 +17,7 @@ const routes: Routes = [
     },
     {
         path: 'profile',
-        component: ProfileComponent
+        component: PerfilComponent
     }
 ];
 

@@ -12,6 +12,7 @@ import { DOCUMENT } from '@angular/common';
 import { MENU } from './menu';
 import { MenuItem } from './menu.model';
 import { environment } from '../../../environments/environment';
+import { UsuarioService } from 'src/app/account/services/usuario.service';
 
 @Component({
   selector: 'app-horizontaltopbar',
@@ -45,7 +46,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
     private authFackservice: AuthfakeauthenticationService,
     public languageService: LanguageService,
     // tslint:disable-next-line: variable-name
-    public _cookiesService: CookieService) {
+    public _cookiesService: CookieService,
+    private usuarioService : UsuarioService) {
     router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.activateMenu();
@@ -79,12 +81,15 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
    * Logout the user
    */
   logout() {
+    /*
     if (environment.defaultauth === 'firebase') {
       this.authService.logout();
     } else {
       this.authFackservice.logout();
     }
     this.router.navigate(['/account/login']);
+    */
+   this.usuarioService.logout();
   }
 
   /**

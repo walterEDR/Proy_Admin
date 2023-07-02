@@ -44,7 +44,7 @@
                 <div class="mb-3">
                   <label for="password">Contraseña</label>
                   <div class="input-group auth-pass-inputgroup">
-                    <input type="password" class="form-control"
+                    <input type="{{type}}" class="form-control"
                      formControlName="password"
                      placeholder="Enter password"
                       [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
@@ -52,7 +52,7 @@
                       aria-describedby="password-addon">
 
                     <button class="btn btn-light ms-0" type="button" id="password-addon"><i
-                        class="mdi mdi-eye-outline"></i>
+                        class="{{class}}" (click)="cambio()" ></i>
                     </button>
 
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">

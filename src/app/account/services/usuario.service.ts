@@ -17,6 +17,7 @@ export class UsuarioService {
   public usuario!: Usuario;
   private http = inject(HttpClient);
 
+
   constructor(private router : Router, private ngZone : NgZone) { }
 
   //---------------------- Crear Usuario ----------------------//
@@ -84,6 +85,10 @@ crearUsuario(forData : IRegistroUsuario){
 
   get rol() : "ADMIN_ROLE" | "USER_ROLE" | string{
       return this.usuario.rol;
+  }
+
+  verificarToken() : boolean{
+    return !!this.token;
   }
 
 }

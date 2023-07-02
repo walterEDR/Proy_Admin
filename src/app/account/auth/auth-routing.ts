@@ -8,11 +8,13 @@ import { SignupComponent } from './signup/signup.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { Register2Component } from './register2/register2.component';
 import { Recoverpwd2Component } from './recoverpwd2/recoverpwd2.component';
+import { Login2Guard } from 'src/app/core/guards/login2.guard';
+
 
 const routes: Routes = [
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent , //canActivate:[Login2Guard]
     },
     {
         path: 'signup',
