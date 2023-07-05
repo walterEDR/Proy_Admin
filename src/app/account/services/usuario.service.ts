@@ -91,4 +91,24 @@ crearUsuario(forData : IRegistroUsuario){
     return !!this.token;
   }
 
+  async actualizarFoto(archivo : File, tipo : 'usuarios', id : string){
+      try {
+        const url = `${baseUrl}/upload/${tipo}/${id}`;
+        const formData = new FormData();
+        formData.append('imagen',archivo);
+        const resp = await fetch(url, {
+          method: 'PUT',
+          headers: {'x-token': localStorage.getItem('token') || ''}, body: formData
+        });
+        const data = await resp.json();
+        if(data.ok){
+          return data.nombreArchivo;
+        }else{
+          return false;
+        }
+      } catch (error) {
+        return false;
+      }
+  }
+
 }
