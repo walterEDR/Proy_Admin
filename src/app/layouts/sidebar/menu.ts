@@ -867,6 +867,36 @@ export const MENU: MenuItem[] = [
 
 
     ]
+},
+{
+  id: 138,
+  label: 'clinica',
+  icon: 'bx-health',
+  subItems: [
+      {
+          id: 139,
+          label: 'listar',
+          link: '/clinica/listar',
+          parentId: 138
+      },
+
+
+  ]
+},
+{
+  id: 170,
+  label: 'Perfil',
+  icon: 'bx-health',
+  subItems: [
+      {
+          id: 171,
+          label: 'Foto',
+          link: '/perfil',
+          parentId: 138
+      },
+
+
+  ]
 }
 
 ];

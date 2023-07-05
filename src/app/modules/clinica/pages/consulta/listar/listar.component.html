@@ -1,0 +1,72 @@
+<div class="container-fluid">
+
+  <app-page-title title="Consulta Por Especialidad" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="row mb-2">
+          <div class="col-sm-4">
+
+            <div class="search-box me-2 mb-2 d-inline-block">
+              <div class="position-relative">
+                <p>Especialidad</p>
+                <button type="button" class="btn btn-outline-warning" (click)="descargarPdf()">Descargar PDF</button>
+                <button type="button" class="btn btn-outline-primary" (click)="generarConsultaPdf()">ver PDF</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- end col-->
+        </div>
+
+        <!-- Contenido del Scroll data -->
+        <app-especialidad [consulta]="especialidad"></app-especialidad>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Aquiva la otra Tabla  -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="row mb-2">
+          <div class="col-sm-4">
+
+            <div class="search-box me-2 mb-2 d-inline-block">
+              <div class="position-relative">
+                <p>Detalle</p>
+                <button type="button" class="btn btn-outline-primary">Generar PDF</button>
+                <button type="button" class="btn btn-outline-primary">PDF Maker</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- end col-->
+        </div>
+
+        <!-- Contenido del Scroll data -->
+        <app-detalle [consulta]="consulta"></app-detalle>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+

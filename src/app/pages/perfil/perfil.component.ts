@@ -12,23 +12,24 @@ export class PerfilComponent implements OnInit {
 
   public perfil: Usuario;
   public imagenSubir!: File;
-  public imagenTemp: string | ArrayBuffer = null;
+  public imgTemp: string | ArrayBuffer = null;
 
   constructor(private usuarioService : UsuarioService) { }
 
   ngOnInit(): void {
+    this.perfil = this.usuarioService.usuario;
   }
 
   preVisualizarImagen(event: any) {
     this.imagenSubir = event.target.files[0];
     // Cambiar a imagen previa
     if(!this.imagenSubir){
-        this.imagenTemp = null;
+        this.imgTemp = null;
     }
     const reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]);
-    reader.onloadend = () => {
-      this.imagenTemp = reader.result;
+    reader.onload = () => {
+      this.imgTemp = reader.result;
     }
 
   }

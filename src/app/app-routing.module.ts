@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'anime', component: LayoutComponent, loadChildren: () => import('./modules/anime/anime.module').then(m => m.AnimeModule), canActivate: [AuthGuard], canLoad:[AuthGuard] }, //canActivate: [AuthGuard]
   { path: 'formulario', component: LayoutComponent, loadChildren: () => import('./modules/formulario/formulario.module').then(m => m.FormularioModule), canActivate: [AuthGuard], canLoad:[AuthGuard] }, //canActivate: [AuthGuard]
   { path: 'bibliotecas', component: LayoutComponent, loadChildren: () => import('./modules/bibliotecas/bibliotecas.module').then(m => m.BibliotecasModule), canActivate: [AuthGuard], canLoad:[AuthGuard] },//canActivate: [AuthGuard]
+  { path: 'clinica', component: LayoutComponent, loadChildren: () => import('./modules/clinica/clinica.module').then(m => m.ClinicaModule), canActivate: [AuthGuard], canLoad:[AuthGuard] },//canActivate
   { path: '**', component: Page404Component },
 
 ];

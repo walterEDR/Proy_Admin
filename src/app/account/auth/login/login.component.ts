@@ -78,8 +78,7 @@ export class LoginComponent implements OnInit {
 
   /**
    * Form submit
-   */
-  onSubmit() {
+   *  onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
@@ -106,6 +105,8 @@ export class LoginComponent implements OnInit {
       }
     }
   }
+   */
+
 
   login(){
     this.submitted = true;
