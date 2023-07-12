@@ -1,0 +1,10 @@
+<input type="file" class="form-control" (change)="onChange($event)">
+<div *ngIf="myimage" class="row p-3">
+  <div class="col-3">
+    <img [src]="myimage" wight="200px" height="200px" alt="">
+  </div>
+  <div class="col-9">
+    <textarea class="m-4" cols="100" rows="20" [(ngModel)]="codigoBase64"></textarea>
+  </div>
+</div>
+

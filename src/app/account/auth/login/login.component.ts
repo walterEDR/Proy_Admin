@@ -46,13 +46,13 @@ export class LoginComponent implements OnInit {
      //  this.router.navigate(['/dashboard']);
     // }
 
-     this.loginForm = this.iniciarFormulario();
-    /*
+   //  this.loginForm = this.iniciarFormulario();
+
     this.loginForm = this.formBuilder.group({
       email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
       password: ['123456', [Validators.required]],
     });
-      */
+
     // reset login status
     // this.authenticationService.logout();
     // get return url from route parameters or default to '/'
@@ -76,9 +76,9 @@ export class LoginComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
 
-  /**
-   * Form submit
-   *  onSubmit() {
+
+   //Form submit
+     onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
@@ -105,7 +105,7 @@ export class LoginComponent implements OnInit {
       }
     }
   }
-   */
+
 
 
   login(){

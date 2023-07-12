@@ -14,6 +14,7 @@ export class ListarComponent implements OnInit {
   consulta : IConsulta[] = [];
   especialidad : IEspecialidad[] = [];
   breadCrumbItems: Array<{}>;
+  allConsultas : IConsulta[];
 
   constructor(private consultaService : ConsultaService) { }
 
@@ -81,11 +82,14 @@ export class ListarComponent implements OnInit {
       return doc;
     }).then((docResult) => {
       docResult.text(content, 10, 10);
-      docResult.save(`${new Date().toISOString()}_consulta.pdf`);
+      docResult.save(`${new Date().toISOString()}consulta.pdf`);
     });
 
   }
 
-  
+  pdfMake(){
+    this.consultaService.generarPdfMake('PDFMAKE ------ Angular', this.consulta);
+  }
+
 
 }

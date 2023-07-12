@@ -850,19 +850,33 @@ export const MENU: MenuItem[] = [
             parentId: 130
 
         },
+        {
+          id: 134,
+          label: 'Base64',
+          link: '/excel/base64',
+          parentId: 130
+
+      },
+      {
+        id: 135,
+        label: 'Excel',
+        link: '/excel/excel',
+        parentId: 130
+
+    },
 
       ]
   },
   {
-    id: 135,
+    id: 136,
     label: 'Biblioteca',
     icon: 'bx-health',
     subItems: [
         {
-            id: 136,
+            id: 137,
             label: 'Listar',
             link: '/bibliotecas/listar',
-            parentId: 135
+            parentId: 136
         },
 
 
